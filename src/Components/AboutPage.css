@@ -6,7 +6,7 @@ html, body, #root {
   padding: 0 !important;
   width: 100% !important;
   overflow-x: hidden;
-  background-color: #ffffff;
+  background-color: #F2F3F4;
 }
 
 .about-page, .reveal, .bento-card, .floating-blob, .glass-effect, .step-card {
@@ -16,11 +16,10 @@ html, body, #root {
 }
 
 :root {
-  --bg-white: #ffffff;
-  --apple-gray: #f5f5f7;
-  --text-black: #1d1d1f;
-  --accent-green: #26d367;
-  --accent-gradient: linear-gradient(135deg, #26d367 0%, #007aff 100%);
+  --bg-white: #F2F3F4;
+  --apple-gray: #ffffff;
+  --text-black: #000000;
+  --accent-green: #26D367;
   --font-main: "Noto Sans Georgian", -apple-system, sans-serif;
   --nav-bounce: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -31,14 +30,24 @@ html, body, #root {
   background-color: var(--bg-white);
   color: var(--text-black);
   font-family: var(--font-main);
-  padding-bottom: 120px;
+  padding-bottom: clamp(80px, 10vw, 120px);
 }
 
 /* 2. HERO SECTION */
 .about-hero {
-  padding: 160px 48px 80px;
-  text-align: center;
+  padding: clamp(128px, 14vw, 180px) clamp(24px, 5vw, 48px) clamp(64px, 8vw, 96px);
+  text-align: left;
   position: relative;
+  display: box;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 480px);
+  align-items: center;
+  gap: clamp(28px, 5vw, 56px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-hero-copy {
+  min-width: 0;
 }
 
 .about-hero h1 {
@@ -47,17 +56,12 @@ html, body, #root {
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
+  overflow-wrap: anywhere;
 }
 
-.hero-gradient-text {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% auto;
-  animation: shimmer 5s linear infinite;
+.hero-accent-text {
+  color: var(--accent-green);
 }
-
-@keyframes shimmer { to { background-position: 200% center; } }
 
 .establishment-tag {
   display: inline-block;
@@ -73,35 +77,53 @@ html, body, #root {
 .lead {
   font-size: clamp(18px, 2.5vw, 24px);
   max-width: 850px;
-  margin: 0 auto;
-  color: #48484a;
+  margin: 0;
+  color: #000000;
   line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.about-hero-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: clamp(24px, 3vw, 36px);
+  overflow: hidden;
+  background: #26D367;
+  box-shadow: 0 24px 70px rgba(10, 20, 14, 0.12);
+}
+
+.about-hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* 3. BENTO GRID SYSTEM - FULL SCREEN WITH PADDING */
 .full-bleed-container {
   width: 100%;
-  padding: 0 48px;
+  padding: 0 clamp(20px, 5vw, 48px);
   box-sizing: border-box;
 }
 
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .section-title {
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
-  margin: 80px 0 40px;
+  margin: clamp(56px, 8vw, 80px) 0 clamp(28px, 4vw, 40px);
+  overflow-wrap: anywhere;
 }
 
 .bento-card {
   grid-column: span 12;
   background: var(--apple-gray);
-  padding: 45px;
-  border-radius: 35px;
+  padding: clamp(28px, 4vw, 45px);
+  border-radius: clamp(24px, 3vw, 35px);
   position: relative;
   overflow: hidden;
   transition: transform 0.4s var(--nav-bounce), background 0.3s ease, box-shadow 0.4s ease;
@@ -116,6 +138,12 @@ html, body, #root {
 .card-wide { grid-column: span 8; }
 .card-slim { grid-column: span 4; }
 .card-dark { background: #000 !important; color: #fff !important; }
+
+.services-page .bento-card h3 {
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.18;
+  margin: 12px 0 14px;
+}
 
 /* 4. CONTACT SPECIFIC STYLES (ADDED) */
 .contact-link {
@@ -144,8 +172,8 @@ html, body, #root {
 .lively-quote {
   grid-column: span 12;
   background: #000 !important;
-  padding: 100px 40px;
-  border-radius: 45px;
+  padding: clamp(64px, 8vw, 100px) clamp(24px, 4vw, 40px);
+  border-radius: clamp(28px, 4vw, 45px);
   text-align: center;
   position: relative;
 }
@@ -178,10 +206,18 @@ html, body, #root {
 }
 
 .step-card {
-  padding: 35px;
+  padding: clamp(28px, 4vw, 35px);
   background: var(--apple-gray);
   border-radius: 28px;
   transition: all 0.4s var(--nav-bounce);
+}
+
+.step-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 22px;
 }
 
 .step-card:hover {
@@ -210,15 +246,43 @@ html, body, #root {
 .glass-effect {
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.03) 50%, transparent 60%);
-  background-size: 200% 200%;
-  animation: sweep 8s infinite linear;
+  background: transparent;
 }
-@keyframes sweep { from { background-position: -100% -100%; } to { background-position: 100% 100%; } }
 
 /* 8. MOBILE RESPONSIVENESS */
 @media (max-width: 900px) {
   .full-bleed-container { padding: 0 24px; }
   .card-wide, .card-slim { grid-column: span 12; }
-  .about-hero { padding: 120px 24px 60px; }
+  .about-hero {
+    grid-template-columns: 1fr;
+    padding: 120px 24px 60px;
+    text-align: center;
+  }
+
+  .about-hero .lead {
+    margin: 0 auto;
+  }
+
+  .about-hero-media {
+    max-width: 420px;
+    margin: 0 auto;
+    border-radius: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-hero {
+    padding-top: 108px;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(34px, 11vw, 48px);
+  }
+
+  .lead,
+  .bento-card p,
+  .step-card p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
 }

@@ -29,7 +29,7 @@
     min-width: 420px;
     /* Height remains 600px, but it's now anchored to the bottom */
     height: 600px;
-    background: #111;
+    background: #000000;
     border-radius: 50px;
     overflow: hidden;
     flex-shrink: 0;
@@ -89,20 +89,20 @@
     font-weight: 700;
 }
 
-.pill-status.upcoming { background: #E8E9FF; color: #7B72FF; }
-.pill-status.active { background: #E2FFE9; color: #26D367; }
-.pill-status.finished { background: #FFEDED; color: #FF5C5C; }
+.pill-status.upcoming { background: rgba(0, 119, 255, 0.12); color: #0077FF; }
+.pill-status.active { background: rgba(38, 211, 103, 0.14); color: #26D367; }
+.pill-status.finished { background: rgba(0, 0, 0, 0.08); color: #000000; }
 
 .pill-details {
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(0,0,0,0.12);
 }
 
 .pill-details p {
     font-size: 0.95rem;
     line-height: 1.5;
-    color: #444;
+    color: #000000;
 }
 
 /* Hover/touch micro-interactions */
@@ -168,14 +168,14 @@
     height: 50px;
     border-radius: 50%;
     border: none;
-    background: #f4f4f4;
+    background: #F2F3F4;
     font-size: 24px;
     cursor: pointer;
     z-index: 10;
     transition: transform 0.2s;
 }
 
-.modal-close:hover { transform: rotate(90deg); background: #eee; }
+.modal-close:hover { transform: rotate(90deg); background: rgba(0, 119, 255, 0.12); }
 
 /* Content Layout */
 .modal-body {
@@ -186,13 +186,13 @@
     font-size: 3rem;
     margin: 15px 0;
     font-weight: 800;
-    color: #111;
+    color: #000000;
 }
 
 .modal-text-content p {
     font-size: 1.2rem;
     line-height: 1.7;
-    color: #555;
+    color: #000000;
     max-width: 800px;
     margin-bottom: 50px;
 }

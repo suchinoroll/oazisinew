@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './AboutPage.css';
+import AboutUsAnimated from '../assets/New/home,AboutUsAnimated.mp4';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -18,15 +19,16 @@ const AboutPage = () => {
       <main className="about-page">
         {/* Hero სექცია - დინამიკური ფონით */}
         <header className="about-hero reveal">
-          <div className="floating-blob"></div>
-          <div className="establishment-tag">დაარსდა 2018 წელს</div>
-          <h1>
-            ჩვენ ვაშენებთ<br />
-            <span className="hero-gradient-text animated-gradient">მომავლის ოაზისს.</span>
-          </h1>
-          <p className="lead">
-            შპს „ოაზისი“ წარმოადგენს სანდო პარტნიორს სამშენებლო და სარემონტო სფეროში. ჩვენი გუნდი აერთიანებს გამოცდილ პროფესიონალებს, რომელთა მონაწილეობით მრავალი წარმატებული პროექტი განხორციელდა.
-          </p>
+          <div className="about-hero-copy">
+            <div className="establishment-tag">დაარსდა 2018 წელს</div>
+            <h1>
+              ჩვენ ვაშენებთ<br />
+              <span className="hero-accent-text">მომავლის ოაზისს.</span>
+            </h1>
+            <p className="lead">
+              შპს „ოაზისი“ წარმოადგენს სანდო პარტნიორს სამშენებლო და სარემონტო სფეროში. ჩვენი გუნდი აერთიანებს გამოცდილ პროფესიონალებს, რომელთა მონაწილეობით მრავალი წარმატებული პროექტი განხორციელდა.
+            </p>
+          </div>
         </header>
 
         <div className="full-bleed-container">

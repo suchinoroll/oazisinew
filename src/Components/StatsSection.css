@@ -2,11 +2,12 @@
 .stats-section {
     width: 100%;
     min-height: 100vh; /* Ensures the section takes full screen */
+    min-height: 100svh;
     background-color: #F2F3F4;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 40px;
+    padding: clamp(24px, 5vw, 60px) clamp(16px, 4vw, 40px);
     box-sizing: border-box;
     scroll-snap-align: start;
 }
@@ -15,7 +16,8 @@
     display: flex;
     width: 100%;
     max-width: 1400px;
-    height: 75vh; /* Standard desktop height */
+    min-height: min(75vh, 760px);
+    height: auto;
     gap: 25px;
 }
 
@@ -27,17 +29,18 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 50px;
+    min-width: 0;
+    padding: clamp(32px, 4vw, 50px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.card-green { background-color: #26d367; }
+.card-green { background-color: #26D367; }
 .card-black { background-color: #000000; }
 
 /* THE GIANT NUMBERS */
 .giant-number {
     position: absolute;
-    font-size: 30rem;
+    font-size: clamp(18rem, 34vw, 30rem);
     font-weight: 900;
     line-height: 0.8;
     top: -20px;
@@ -64,38 +67,38 @@
 }
 
 .label-text {
-    font-size: 3.8rem;
+    font-size: clamp(2.4rem, 4.4vw, 3.8rem);
     font-weight: 900;
     line-height: 0.95;
     text-transform: lowercase;
 }
 
 .text-black { color: #000000; }
-.text-green { color: #26d367; }
+.text-green { color: #26D367; }
 
 /* TABLET SCALING */
 @media (max-width: 1200px) {
-    .giant-number { font-size: 25rem; }
-    .label-text { font-size: 2.8rem; }
+    .stats-container { min-height: 680px; }
 }
 
 /* MOBILE OPTIMIZATION: FULL SCREEN FILL */
 @media (max-width: 768px) {
     .stats-section {
         padding: 15px; /* Minimal padding for edge-to-edge feel */
-        height: 100vh;
+        min-height: auto;
+        height: auto;
         /* Fix for mobile browser address bars */
-        height: 100svh;
     }
 
     .stats-container {
         flex-direction: column;
-        height: 100%; /* REQUIRED: Container fills the 100vh section */
+        height: auto;
         gap: 12px;
     }
 
     .stat-card {
-        flex: 1; /* Forces each card to take exactly 50% of the container height */
+        flex: none;
+        min-height: clamp(280px, 42svh, 360px);
         padding: 30px;
         border-radius: 25px;
         display: flex;
@@ -103,7 +106,7 @@
     }
 
     .giant-number {
-        font-size: 16rem; /* Scaled down so it doesn't overflow mobile width */
+        font-size: clamp(12rem, 58vw, 16rem);
         letter-spacing: -10px;
     }
 

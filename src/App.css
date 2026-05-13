@@ -7,7 +7,7 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
   /* SNAP LOGIC: Gentler snapping for a smoother feel */
   scroll-snap-type: y proximity;
@@ -20,6 +20,9 @@ body {
   padding: 0;
   display: block; /* CRITICAL: Prevents horizontal shrinking */
   width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 /* 2. THEME TRANSITION */
@@ -31,14 +34,14 @@ body {
 
 /* Activated by React Scroll Logic when on Section 3/4 */
 .app-container.white-bg {
-  background-color: #ffffff;
+  background-color: #F2F3F4;
 }
 
 /* 3. SECTION LOGIC - OPTIMIZED FOR HUG & NO CUT-OFF */
 section, .split-section {
-  width: 100vw;
+  width: 100%;
   height: auto; /* Hug content on mobile */
-  min-height: 100vh; /* At least full screen */
+  min-height: 100svh; /* At least full screen */
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
@@ -52,17 +55,22 @@ section, .split-section {
 .section-hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #31CF72;
+  background-color: #26D367;
 }
 
-.hero-logo-large {
-  width: 280px;
-  filter: brightness(0); /* Black logo for green bg */
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 /* 4. SPLIT SECTIONS (About / General) */
@@ -73,10 +81,17 @@ section, .split-section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 60px 24px; /* Mobile friendly padding */
+  padding: clamp(48px, 10vw, 80px) clamp(20px, 5vw, 48px);
 }
 
 .section-half img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+}
+
+.section-half .section-animation {
   width: 100%;
   max-width: 450px;
   height: auto;
@@ -97,6 +112,7 @@ section, .split-section {
   font-weight: 800;
   color: #000000;
   line-height: 1.1;
+  overflow-wrap: anywhere;
 }
 
 /* YOUR REQUESTED P OPTIMIZATION */
@@ -104,21 +120,23 @@ section, .split-section {
   font-size: clamp(18px, 2.5vw, 24px);
   max-width: 850px;
   margin: 0 auto;
-  color: #48484a;
+  color: #000000;
   line-height: 1.6;
   white-space: pre-line;
+  overflow-wrap: anywhere;
 }
 
 /* 5. FIXED HEADER & LOGO INVERSION */
 .fixed-nav-wrapper {
   position: fixed;
-  top: 30px;
-  left: 30px;
-  width: calc(100% - 60px);
+  top: 24px;
+  left: 24px;
+  width: calc(100% - 48px);
   z-index: 10000; /* Increased to stay on top */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: clamp(12px, 3vw, 24px);
   pointer-events: none;
 }
 
@@ -141,12 +159,12 @@ section, .split-section {
 }
 
 .nav-logo-slot.show {
-  width: 180px;
+  width: 160px;
   opacity: 1;
 }
 
 .nav-logo-slot img {
-  height: 28px;
+  height: 26px;
   filter: brightness(0);
   transition: filter 0.4s ease;
 }
@@ -157,10 +175,10 @@ section, .split-section {
 
 /* 6. STATS SECTION */
 .stats-section {
-  width: 100vw;
+  width: 100%;
   height: auto;
-  min-height: 100vh;
-  padding: 24px;
+  min-height: 100svh;
+  padding: clamp(18px, 4vw, 60px) clamp(16px, 4vw, 40px);
   display: flex;
   background-color: transparent;
   scroll-snap-align: start;
@@ -183,7 +201,7 @@ section, .split-section {
   padding: 50px;
 }
 
-.bg-green { background-color: #26d367; }
+.bg-green { background-color: #26D367; }
 .bg-black { background-color: #000000; }
 
 .big-num {
@@ -214,11 +232,11 @@ section, .split-section {
 }
 
 .label-black { color: #000000; }
-.label-green { color: #26d367; }
+.label-green { color: #26D367; }
 
 /* 7. PROJECTS SECTION */
 .projects-scroll-section {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   padding: 0 40px;
   display: flex;
@@ -241,7 +259,7 @@ section, .split-section {
 .project-card {
   min-width: 420px;
   height: 600px;
-  background: #111;
+  background: #000000;
   border-radius: 50px;
   overflow: hidden;
   flex-shrink: 0;
@@ -275,7 +293,7 @@ section, .split-section {
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 200px;
+  min-width: 170px;
   height: 60px;
 }
 
@@ -313,9 +331,14 @@ section, .split-section {
 @media (max-width: 768px) {
   /* 0. Header Mobile Adjustments */
   .fixed-nav-wrapper {
-    top: 15px;
-    left: 15px;
-    width: calc(100% - 30px);
+    top: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
+    justify-content: center;
+  }
+
+  .nav-left-content {
+    display: none;
   }
 
   .nav-section-title {
@@ -326,6 +349,7 @@ section, .split-section {
   .stats-section {
     height: auto !important;
     padding: 15px !important;
+    min-height: auto;
     display: flex;
     flex-direction: column;
   }
@@ -373,11 +397,23 @@ section, .split-section {
   }
 }
 
+@media (max-width: 420px) {
+  .text-container h2 {
+    font-size: clamp(2rem, 13vw, 2.8rem);
+  }
+
+  .text-container p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+}
+
 /* 10. DESKTOP REFINEMENT (Side-by-side) */
 @media (min-width: 769px) {
   section, .split-section {
     flex-direction: row;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .split-section.reverse {
@@ -388,7 +424,7 @@ section, .split-section {
     flex: 1;
     height: 100%;
     width: 50%;
-    padding: 80px;
+    padding: clamp(56px, 6vw, 96px);
     align-items: flex-start;
   }
 
@@ -400,7 +436,15 @@ section, .split-section {
     margin: 0;
   }
 
-  .illustration-container img {
-    max-width: 650px;
+  .illustration-container img,
+  .illustration-container .section-animation {
+    max-width: min(650px, 100%);
+  }
+}
+
+@media (min-width: 1400px) {
+  .fixed-nav-wrapper {
+    left: 40px;
+    width: calc(100% - 80px);
   }
 }

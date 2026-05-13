@@ -4,14 +4,17 @@ import Navbar from "./Components/Navbar";
 import Section from "./Components/Section";
 import StatsSection from './Components/StatsSection';
 import ContactSection from './Components/ContactSection';
-import ProjectsSection from './Components/ProjectsSection';
 import AboutPage from './Components/AboutPage';
 import ServicesPage from './Components/ServicesPage.jsx';
+import WorkProcessSection from './Components/WorkProcessSection.jsx';
 import "./App.css";
 
 // Assets
-import Logo from "./assets/Logo.svg";
-import WomanInCircle from "./assets/Woman in circle.png";
+import Logo from "./assets/New/logoNew.svg";
+import HomeBanner from "./assets/New/Home.banner.mp4";
+import HomeBannerMobile from "./assets/New/home.bannermobile.mp4";
+import HomeAboutVisual from "./assets/New/home.AboutUsStatic.svg";
+import HomeAboutAnimation from "./assets/New/home,AboutUsAnimated.mp4";
 
 const ScrollToTop = ({ setIsWhiteMode }) => {
     const { pathname } = useLocation();
@@ -30,13 +33,12 @@ const ScrollToTop = ({ setIsWhiteMode }) => {
 function App() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isWhiteMode, setIsWhiteMode] = useState(false);
-    const [isProjectsSection, setIsProjectsSection] = useState(false);
 
     useEffect(() => {
         const rootMargin = '0px 0px -30% 0px'; // Detect when 70% of section is visible
         const heroEl = document.querySelector('#hero');
         const statsEl = document.querySelector('.stats-section');
-        const projectsEl = document.querySelector('.projects-scroll-section');
+        const processEl = document.querySelector('.home-process-section');
 
         // Toggle navbar visibility based on Hero presence
         const heroObserver = new IntersectionObserver((entries) => {
@@ -49,22 +51,19 @@ function App() {
         // Manage background theme and dynamic section titles
         const modeObserver = new IntersectionObserver((entries) => {
             let white = false;
-            let onProjects = false;
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                    if (entry.target === statsEl || entry.target === projectsEl) white = true;
-                    if (entry.target === projectsEl) onProjects = true;
+                    if (entry.target === statsEl || entry.target === processEl) white = true;
                 }
             });
 
             if (window.location.pathname === '/') {
                 setIsWhiteMode(white);
             }
-            setIsProjectsSection(onProjects);
         }, { threshold: [0.5, 0.75], rootMargin });
 
         if (statsEl) modeObserver.observe(statsEl);
-        if (projectsEl) modeObserver.observe(projectsEl);
+        if (processEl) modeObserver.observe(processEl);
 
         return () => {
             heroObserver.disconnect();
@@ -78,13 +77,8 @@ function App() {
             <div className={`app-container ${isWhiteMode ? 'white-bg' : ''}`}>
                 <header className="fixed-nav-wrapper">
                     <div className="nav-left-content">
-                        {/* Logo fades out when entering Projects section title mode */}
-                        <div className={`nav-logo-slot ${isScrolled && !isProjectsSection ? 'show' : ''}`}>
+                        <div className={`nav-logo-slot ${isScrolled ? 'show' : ''}`}>
                             <img src={Logo} alt="Oasis Logo" />
-                        </div>
-                        {/* Title appears only in Projects section */}
-                        <div className={`nav-section-title ${isProjectsSection ? 'show' : ''}`}>
-                            პროექტები
                         </div>
                     </div>
                     <Navbar />
@@ -94,7 +88,17 @@ function App() {
                     <Route path="/" element={
                         <main>
                             <section id="hero" className="section-hero">
-                                <img src={Logo} alt="Logo" className="hero-logo-large" />
+                                <video
+                                    className="hero-bg-video"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    aria-hidden="true"
+                                >
+                                    <source src={HomeBannerMobile} media="(max-width: 700px)" type="video/mp4" />
+                                    <source src={HomeBanner} type="video/mp4" />
+                                </video>
                             </section>
 
                             <Section
@@ -103,11 +107,12 @@ function App() {
                                 description="შპს „ოაზისი“ დაარსდა 2018 წელს და წარმოადგენს სანდო პარტნიორს სამშენებლო და სარემონტო სფეროში. ჩვენი გუნდი აერთიანებს გამოცდილ პროფესიონალებს, რომელთა მონაწილეობით არაერთი წარმატებული პროექტი განხორციელდა.
 
 ვთავაზობთ სრული სპექტრის სამშენებლო და სარემონტო მომსახურებას — იდეის დაგეგმვიდან პროექტის სრულ დასრულებამდე. ვეყრდნობით თანამედროვე ტექნოლოგიებსა და მაღალი ხარისხის მასალებს, რათა საბოლოო შედეგი სრულად შეესაბამებოდეს საერთაშორისო სტანდარტებს და მომხმარებლის მოლოდინებს."
-                                image={WomanInCircle}
+                                image={HomeAboutVisual}
+                                animation={HomeAboutAnimation}
                                 imageRight={false}
                             />
                             <StatsSection />
-                            <ProjectsSection />
+                            <WorkProcessSection />
                         </main>
                     } />
                     <Route path="/about" element={<AboutPage />} />

@@ -36,15 +36,15 @@
 /* ========================= */
 
 .btn-primary {
-    background-color: #17624F;
+    background-color: #26D367;
     color: white;
 
-    box-shadow: 0 6px 16px rgba(23, 98, 79, 0.25);
+    box-shadow: 0 6px 16px rgba(38, 211, 103, 0.25);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 26px rgba(23, 98, 79, 0.35);
+    box-shadow: 0 10px 26px rgba(0, 119, 255, 0.26);
 }
 
 .btn-primary:hover .btn-arrow {
@@ -53,7 +53,7 @@
 
 .btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(23, 98, 79, 0.25);
+    box-shadow: 0 4px 10px rgba(38, 211, 103, 0.25);
 }
 
 /* ========================= */
@@ -62,12 +62,12 @@
 
 .btn-secondary {
     background: white;
-    color: #17624F;
-    border: 2px solid #17624F;
+    color: #26D367;
+    border: 2px solid #26D367;
 }
 
 .btn-secondary:hover {
-    background: #17624F;
+    background: #26D367;
     color: white;
 }
 

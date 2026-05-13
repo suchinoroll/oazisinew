@@ -17,19 +17,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px; /* მინიმალური padding, რომ ტექსტი ეკრანს არ მიეკროს */
+    min-width: 0;
+    padding: clamp(20px, 5vw, 48px);
     box-sizing: border-box;
+}
+
+.section-animation {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 /* 3. ტექსტის კონტეინერი */
 .text-container {
     width: 100%;
-    padding: 60px 5%; /* ვერტიკალური სივრცე (60px) სექციის შიგნით */
+    padding: clamp(48px, 8vw, 80px) 5%;
 }
 
 .text-container p {
     font-size: clamp(18px, 2.5vw, 24px);
-    color: #48484a;
+    color: #000000;
     line-height: 1.6;
     font-weight: 500;
     white-space: pre-line;
@@ -37,6 +45,7 @@
     max-width: none;
     margin: 0;
     text-align: left;
+    overflow-wrap: anywhere;
 }
 
 .text-container h2 {
@@ -45,6 +54,7 @@
     line-height: 1.1;
     margin-bottom: 24px;
     letter-spacing: -0.03em;
+    overflow-wrap: anywhere;
 }
 
 /* 4. Desktop-ის ოპტიმიზაცია */
@@ -65,10 +75,11 @@
 
     /* ტექსტის მხარეს ვინარჩუნებთ მცირე გვერდითა დაშორებას */
     .text-container {
-        padding: 100px 8%;
+        padding: clamp(80px, 8vw, 120px) 8%;
     }
 
-    .illustration-container img {
+    .illustration-container img,
+    .illustration-container .section-animation {
         width: 100%;
         height: 100%;
         object-fit: cover; /* სურათი ავსებს თავის ნახევარს სრულად */

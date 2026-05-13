@@ -1,0 +1,108 @@
+.home-process-section {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
+    padding: clamp(96px, 12vw, 120px) clamp(20px, 5vw, 48px) clamp(72px, 9vw, 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #F2F3F4;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+.home-process-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.home-process-inner h2 {
+    color: #000000;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    margin: 0 0 40px;
+    overflow-wrap: anywhere;
+}
+
+.home-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 20px);
+}
+
+.home-process-card {
+    min-height: clamp(280px, 28vw, 320px);
+    padding: clamp(28px, 3vw, 34px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: #ffffff;
+    border-radius: 28px;
+    box-sizing: border-box;
+}
+
+.home-process-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: auto;
+}
+
+.home-process-card span {
+    margin: 32px 0 10px;
+    color: #26D367;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.home-process-card h3 {
+    margin: 0 0 12px;
+    color: #000000;
+    font-size: clamp(1.35rem, 1.55vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    overflow-wrap: normal;
+    word-break: keep-all;
+}
+
+.home-process-card p {
+    margin: 0;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 380px) {
+    .home-process-card p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .home-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .home-process-section {
+        padding: 96px 20px 72px;
+    }
+
+    .home-process-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .home-process-card {
+        min-height: 260px;
+        padding: 28px;
+        border-radius: 24px;
+    }
+}

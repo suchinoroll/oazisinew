@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import HomeIcon from '../assets/Home.svg';
@@ -17,21 +17,11 @@ const tabIndexFromLocation = (location) => {
 
 const Navbar = () => {
     const location = useLocation();
-    const [activeIndex, setActiveIndex] = useState(tabIndexFromLocation(location));
-    const prevIndexRef = useRef(activeIndex);
-
-    useEffect(() => {
-        const nextIndex = tabIndexFromLocation(location);
-        if (nextIndex !== prevIndexRef.current) {
-            setActiveIndex(nextIndex);
-            prevIndexRef.current = nextIndex;
-        }
-    }, [location.pathname]);
+    const activeIndex = tabIndexFromLocation(location);
 
     return (
-        <div className="nav-container">
+        <nav className="nav-container" aria-label="Primary navigation">
             <div className="nav-wrapper">
-                {/* მოძრავი ფონი (სლაიდერი) */}
                 <div
                     className="nav-slider"
                     style={{ transform: `translateX(${activeIndex * 100}%)` }}
@@ -57,7 +47,7 @@ const Navbar = () => {
                     <span>კონტაქტი</span>
                 </Link>
             </div>
-        </div>
+        </nav>
     );
 };
 

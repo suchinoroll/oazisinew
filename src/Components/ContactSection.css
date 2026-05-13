@@ -1,7 +1,7 @@
 .contact-page-container {
     width: 100vw;
     height: 100vh;
-    background-color: #EBECEE; /* The light grey from your image */
+    background-color: #F2F3F4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +66,7 @@
 .form-input-row textarea {
     width: 100%;
     border: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0,0,0,0.16);
     padding: 10px 0;
     font-size: 1rem;
     outline: none;

@@ -14,10 +14,10 @@ const ContactSection = () => {
     }, []);
 
     return (
-        <main className="about-page" style={{backgroundColor: '#EBECEE'}}>
+        <main className="about-page">
             <header className="about-hero reveal">
                 <h1>დაგვიკავშირდით.<br />
-                    <span className="hero-gradient-text animated-gradient">დავიწყოთ პროექტი ერთად.</span>
+                    <span className="hero-accent-text">დავიწყოთ პროექტი ერთად.</span>
                 </h1>
             </header>
 

@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import './AboutPage.css';
+import StepOneIcon from '../assets/New/services.step1.svg';
+import StepTwoIcon from '../assets/New/services.step2.svg';
+import StepThreeIcon from '../assets/New/services.step3.svg';
+import StepFourIcon from '../assets/New/services.step4.svg';
 
 const ServicesPage = () => {
     const observerRef = useRef(null);
@@ -19,13 +23,13 @@ const ServicesPage = () => {
     }, []);
 
     return (
-        <main className="about-page">
+        <main className="about-page services-page">
             <header className="about-hero reveal">
                 <div className="floating-blob"></div>
                 <div className="establishment-tag">ჩვენი სერვისები</div>
                 <h1>
                     სამშენებლო გადაწყვეტილებები.<br />
-                    <span className="hero-gradient-text animated-gradient">მშვიდი ძილის გარანტია.</span>
+                    <span className="hero-accent-text">მშვიდი ძილის გარანტია.</span>
                 </h1>
                 <p className="lead">
                     ჩვენ გთავაზობთ სრულ ციკლს იდეიდან გასაღების ჩაბარებამდე. ყოველი ეტაპი კონტროლდება უახლესი ტექნოლოგიებით.
@@ -62,7 +66,7 @@ const ServicesPage = () => {
                         <div className="glass-effect"></div>
                         <div className="card-tag">Premium</div>
                         <h3>გასაღების ჩაბარებით</h3>
-                        <p style={{color: '#aaa'}}>თქვენ გვაწვდით გასაღებს, ჩვენ კი გიბრუნებთ საცხოვრებლად გამზადებულ, სუფთა და მყუდრო სახლს ყოველგვარი სტრესის გარეშე.</p>
+                        <p style={{color: '#ffffff'}}>თქვენ გვაწვდით გასაღებს, ჩვენ კი გიბრუნებთ საცხოვრებლად გამზადებულ, სუფთა და მყუდრო სახლს ყოველგვარი სტრესის გარეშე.</p>
                     </div>
 
                     {/* Quote (Full Width, Pure Black) */}
@@ -89,12 +93,13 @@ const ServicesPage = () => {
                 <h2 className="section-title reveal">სამუშაო პროცესი.</h2>
                 <div className="process-section">
                     {[
-                        { num: "01", title: "დათვალიერება", desc: "ობიექტის უფასო შეფასება და აზომვა." },
-                        { num: "02", title: "ბიუჯეტი", desc: "დეტალური ხარჯთაღრიცხვის მომზადება." },
-                        { num: "03", title: "ხელშეკრულება", desc: "ვადებისა და ხარისხის იურიდიული გარანტია." },
-                        { num: "04", title: "ჩაბარება", desc: "დასრულებული ობიექტი და გარანტია." }
+                        { num: "01", title: "დათვალიერება", desc: "ობიექტის უფასო შეფასება და აზომვა.", icon: StepOneIcon },
+                        { num: "02", title: "ბიუჯეტი", desc: "დეტალური ხარჯთაღრიცხვის მომზადება.", icon: StepTwoIcon },
+                        { num: "03", title: "ხელშეკრულება", desc: "ვადებისა და ხარისხის იურიდიული გარანტია.", icon: StepThreeIcon },
+                        { num: "04", title: "ჩაბარება", desc: "დასრულებული ობიექტი და გარანტია.", icon: StepFourIcon }
                     ].map((step, i) => (
                         <div key={i} className={`step-card reveal stagger-${i+1}`}>
+                            <img className="step-icon" src={step.icon} alt="" />
                             <span className="step-number">{step.num}. ეტაპი</span>
                             <h3>{step.title}</h3>
                             <p>{step.desc}</p>
