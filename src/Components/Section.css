@@ -3,9 +3,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto; /* ვაუქმებთ 100vh-ს, რომ მოერგოს კონტენტს */
+    height: auto;
     min-height: auto;
-    padding: 0; /* ვაუქმებთ გარე პედინგს */
+    padding: 0;
     box-sizing: border-box;
     overflow: hidden;
     background-color: transparent;
@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     min-width: 0;
-    padding: clamp(20px, 5vw, 48px);
+    padding: clamp(24px, 5vw, 48px);
     box-sizing: border-box;
 }
 
@@ -32,11 +32,11 @@
 /* 3. ტექსტის კონტეინერი */
 .text-container {
     width: 100%;
-    padding: clamp(48px, 8vw, 80px) 5%;
+    padding: clamp(44px, 8vw, 80px) clamp(20px, 6vw, 72px);
 }
 
 .text-container p {
-    font-size: clamp(18px, 2.5vw, 24px);
+    font-size: clamp(16px, 1.45vw, 22px);
     color: #000000;
     line-height: 1.6;
     font-weight: 500;
@@ -49,12 +49,22 @@
 }
 
 .text-container h2 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2.15rem, 5.4vw, 4.5rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 24px;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     overflow-wrap: anywhere;
+}
+
+.text-container h2::after {
+    content: "";
+    display: block;
+    width: 76px;
+    height: 8px;
+    margin: 18px auto 0;
+    border-radius: 999px;
+    background: #0077FF;
 }
 
 /* 4. Desktop-ის ოპტიმიზაცია */
@@ -70,7 +80,7 @@
 
     .section-half {
         width: 50%;
-        padding: 0; /* ვაუქმებთ პედინგს ეკრანის შესავსებად */
+        padding: 0;
     }
 
     /* ტექსტის მხარეს ვინარჩუნებთ მცირე გვერდითა დაშორებას */
@@ -78,11 +88,18 @@
         padding: clamp(80px, 8vw, 120px) 8%;
     }
 
+    .text-container h2::after {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .illustration-container img,
     .illustration-container .section-animation {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* სურათი ავსებს თავის ნახევარს სრულად */
+        object-fit: contain;
+        padding: clamp(32px, 5vw, 80px);
+        box-sizing: border-box;
         display: block;
     }
 }

@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from "./Components/Navbar";
 import Section from "./Components/Section";
 import StatsSection from './Components/StatsSection';
-import ContactSection from './Components/ContactSection';
-import AboutPage from './Components/AboutPage';
-import ServicesPage from './Components/ServicesPage.jsx';
 import WorkProcessSection from './Components/WorkProcessSection.jsx';
 import "./App.css";
 
@@ -16,17 +13,23 @@ import HomeBannerMobile from "./assets/New/home.bannermobile.mp4";
 import HomeAboutVisual from "./assets/New/home.AboutUsStatic.svg";
 import HomeAboutAnimation from "./assets/New/home,AboutUsAnimated.mp4";
 
-const ScrollToTop = ({ setIsWhiteMode }) => {
+const AboutPage = lazy(() => import('./Components/AboutPage'));
+const ServicesPage = lazy(() => import('./Components/ServicesPage.jsx'));
+const ContactSection = lazy(() => import('./Components/ContactSection'));
+
+const ScrollToTop = ({ setIsWhiteMode, setIsScrolled }) => {
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
-        // Force white background for About and Services pages
-        if (pathname === '/about' || pathname === '/services') {
-            setIsWhiteMode(true);
-        } else if (pathname !== '/') {
+
+        if (pathname === '/') {
             setIsWhiteMode(false);
+            setIsScrolled(false);
+        } else {
+            setIsWhiteMode(true);
+            setIsScrolled(true);
         }
-    }, [pathname, setIsWhiteMode]);
+    }, [pathname, setIsWhiteMode, setIsScrolled]);
     return null;
 };
 
@@ -73,7 +76,7 @@ function App() {
 
     return (
         <Router>
-            <ScrollToTop setIsWhiteMode={setIsWhiteMode} />
+            <ScrollToTop setIsWhiteMode={setIsWhiteMode} setIsScrolled={setIsScrolled} />
             <div className={`app-container ${isWhiteMode ? 'white-bg' : ''}`}>
                 <header className="fixed-nav-wrapper">
                     <div className="nav-left-content">
@@ -115,9 +118,9 @@ function App() {
                             <WorkProcessSection />
                         </main>
                     } />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/services" element={<ServicesPage />} />
-                    <Route path="/contact" element={<ContactSection />} />
+                    <Route path="/about" element={<Suspense fallback={null}><AboutPage /></Suspense>} />
+                    <Route path="/services" element={<Suspense fallback={null}><ServicesPage /></Suspense>} />
+                    <Route path="/contact" element={<Suspense fallback={null}><ContactSection /></Suspense>} />
                 </Routes>
             </div>
         </Router>

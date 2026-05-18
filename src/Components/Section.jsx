@@ -39,7 +39,8 @@ const Section = ({ id, title, description, image, animation, imageRight }) => {
                         src={animation}
                         muted
                         playsInline
-                        preload="auto"
+                        preload="metadata"
+                        poster={image}
                         onEnded={() => setShowStaticImage(true)}
                         aria-label={title}
                     />

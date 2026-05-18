@@ -34,7 +34,7 @@
 }
 
 .contact-detail-block label {
-    color: #26D367;
+    color: #0077FF;
     font-weight: 700;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -69,13 +69,12 @@
     border-bottom: 1px solid rgba(0,0,0,0.16);
     padding: 10px 0;
     font-size: 1rem;
-    outline: none;
     font-family: inherit;
 }
 
 .oasis-green-btn {
     width: 100%;
-    background-color: #26D367;
+    background: #26D367;
     color: #000;
     border: none;
     padding: 18px;

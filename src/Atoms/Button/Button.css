@@ -36,10 +36,10 @@
 /* ========================= */
 
 .btn-primary {
-    background-color: #26D367;
+    background: #26D367;
     color: white;
 
-    box-shadow: 0 6px 16px rgba(38, 211, 103, 0.25);
+    box-shadow: 0 6px 16px rgba(38, 211, 103, 0.22), 0 8px 20px rgba(0, 119, 255, 0.14);
 }
 
 .btn-primary:hover {
@@ -62,12 +62,12 @@
 
 .btn-secondary {
     background: white;
-    color: #26D367;
-    border: 2px solid #26D367;
+    color: #0077FF;
+    border: none;
 }
 
 .btn-secondary:hover {
-    background: #26D367;
+    background: #0077FF;
     color: white;
 }
 

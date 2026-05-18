@@ -23,90 +23,86 @@ const ServicesPage = () => {
     }, []);
 
     return (
-        <main className="about-page services-page">
-            <header className="about-hero reveal">
-                <div className="floating-blob"></div>
-                <div className="establishment-tag">ჩვენი სერვისები</div>
-                <h1>
-                    სამშენებლო გადაწყვეტილებები.<br />
-                    <span className="hero-accent-text">მშვიდი ძილის გარანტია.</span>
-                </h1>
-                <p className="lead">
-                    ჩვენ გთავაზობთ სრულ ციკლს იდეიდან გასაღების ჩაბარებამდე. ყოველი ეტაპი კონტროლდება უახლესი ტექნოლოგიებით.
-                </p>
+        <main className="design-page services-page">
+            <header className="design-hero reveal">
+                <div className="design-hero-copy">
+                    <span className="design-kicker">ჩვენი სერვისები</span>
+                    <h1>
+                        სამშენებლო გადაწყვეტილებები.<br />
+                        <span>მშვიდი ძილის გარანტია.</span>
+                    </h1>
+                    <p className="lead">
+                        ჩვენ გთავაზობთ სრულ ციკლს იდეიდან გასაღების ჩაბარებამდე. ყოველი ეტაპი კონტროლდება უახლესი ტექნოლოგიებით.
+                    </p>
+                </div>
+                <div className="design-hero-media services-hero-stack" aria-hidden="true">
+                    <img src={StepOneIcon} alt="" />
+                    <img src={StepTwoIcon} alt="" />
+                    <img src={StepThreeIcon} alt="" />
+                    <img src={StepFourIcon} alt="" />
+                </div>
             </header>
 
-            <div className="full-bleed-container">
-                <h2 className="section-title reveal">რას ვასრულებთ.</h2>
-                <div className="bento-grid">
+            <section className="design-grid-section">
+                <h2 className="design-section-title reveal">რას ვასრულებთ.</h2>
+                <div className="design-card-grid">
 
-                    {/* 1. Wide Card */}
-                    <div className="bento-card card-wide reveal stagger-1">
-                        <div className="card-tag">მშენებლობა</div>
+                    <article className="design-card design-wide reveal stagger-1">
+                        <span className="design-kicker">მშენებლობა</span>
                         <h3>კაპიტალური მშენებლობა</h3>
                         <p>სრული ციკლი: საძირკვლის მოწყობა, მონოლითური სამუშაოები და კედლების ამოყვანა უმაღლესი ხარისხის მასალებით.</p>
-                    </div>
+                    </article>
 
-                    {/* 2. Slim Card */}
-                    <div className="bento-card card-slim reveal stagger-2">
-                        <div className="card-tag">დიზაინი</div>
+                    <article className="design-card reveal stagger-2">
+                        <span className="design-kicker">დიზაინი</span>
                         <h3>პროექტირება</h3>
                         <p>სივრცის ფუნქციური დაგეგმარება და 3D ვიზუალიზაცია თქვენს გემოვნებაზე მორგებით.</p>
-                    </div>
+                    </article>
 
-                    {/* 3. Slim Card */}
-                    <div className="bento-card card-slim reveal stagger-1">
-                        <div className="card-tag">განახლება</div>
+                    <article className="design-card reveal stagger-1">
+                        <span className="design-kicker">განახლება</span>
                         <h3>რემონტი</h3>
                         <p>პრემიუმ ხარისხის შიდა მოპირკეთება: ლესვა, მოჭიმვა და სამღებრო სამუშაოები ლაზერული სიზუსტით.</p>
-                    </div>
+                    </article>
 
-                    {/* 4. Wide Card (Dark) */}
-                    <div className="bento-card card-wide card-dark reveal stagger-2">
-                        <div className="glass-effect"></div>
-                        <div className="card-tag">Premium</div>
+                    <article className="design-card design-card-dark design-wide reveal stagger-2">
+                        <span className="design-kicker">Premium</span>
                         <h3>გასაღების ჩაბარებით</h3>
-                        <p style={{color: '#ffffff'}}>თქვენ გვაწვდით გასაღებს, ჩვენ კი გიბრუნებთ საცხოვრებლად გამზადებულ, სუფთა და მყუდრო სახლს ყოველგვარი სტრესის გარეშე.</p>
-                    </div>
+                        <p>თქვენ გვაწვდით გასაღებს, ჩვენ კი გიბრუნებთ საცხოვრებლად გამზადებულ, სუფთა და მყუდრო სახლს ყოველგვარი სტრესის გარეშე.</p>
+                    </article>
 
-                    {/* Quote (Full Width, Pure Black) */}
-                    <div className="lively-quote reveal">
-                        <div className="quote-icon">“</div>
-                        <blockquote>„ჩვენ არ ვართ უბრალოდ შემსრულებლები, ჩვენ ვართ თქვენი პარტნიორები ამ პროცესში.“</blockquote>
-                    </div>
-
-                    {/* 5. Wide Card */}
-                    <div className="bento-card card-wide reveal stagger-1">
-                        <div className="card-tag">ინჟინერია</div>
+                    <article className="design-card design-wide reveal stagger-1">
+                        <span className="design-kicker">ინჟინერია</span>
                         <h3>საინჟინრო ქსელები</h3>
                         <p>ელექტროობა, წყალგაყვანილობა და გათბობის სისტემების მონტაჟი უსაფრთხოების ნორმების სრული დაცვით.</p>
-                    </div>
+                    </article>
 
-                    {/* 6. Slim Card */}
-                    <div className="bento-card card-slim reveal stagger-2">
-                        <div className="card-tag">მართვა</div>
+                    <article className="design-card reveal stagger-2">
+                        <span className="design-kicker">მართვა</span>
                         <h3>მენეჯმენტი</h3>
                         <p>ჩვენ ვმართავთ ყველა რგოლს — მომწოდებლებსა და ლოჯისტიკას, რათა თქვენ დაზოგოთ დრო.</p>
-                    </div>
+                    </article>
                 </div>
+            </section>
 
-                <h2 className="section-title reveal">სამუშაო პროცესი.</h2>
-                <div className="process-section">
+            <section className="design-process-section">
+                <h2 className="design-section-title reveal">სამუშაო პროცესი.</h2>
+                <div className="design-process-grid">
                     {[
                         { num: "01", title: "დათვალიერება", desc: "ობიექტის უფასო შეფასება და აზომვა.", icon: StepOneIcon },
                         { num: "02", title: "ბიუჯეტი", desc: "დეტალური ხარჯთაღრიცხვის მომზადება.", icon: StepTwoIcon },
                         { num: "03", title: "ხელშეკრულება", desc: "ვადებისა და ხარისხის იურიდიული გარანტია.", icon: StepThreeIcon },
                         { num: "04", title: "ჩაბარება", desc: "დასრულებული ობიექტი და გარანტია.", icon: StepFourIcon }
                     ].map((step, i) => (
-                        <div key={i} className={`step-card reveal stagger-${i+1}`}>
-                            <img className="step-icon" src={step.icon} alt="" />
-                            <span className="step-number">{step.num}. ეტაპი</span>
+                        <article key={i} className={`home-process-card reveal stagger-${i+1}`}>
+                            <img src={step.icon} alt="" />
+                            <span>{step.num}. ეტაპი</span>
                             <h3>{step.title}</h3>
                             <p>{step.desc}</p>
-                        </div>
+                        </article>
                     ))}
                 </div>
-            </div>
+            </section>
         </main>
     );
 };
