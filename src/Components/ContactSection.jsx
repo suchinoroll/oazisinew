@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import './AboutPage.css';
+import PhoneIcon from '../assets/New/contact.phone.svg';
+import EmailIcon from '../assets/New/contact.email.svg';
+import FacebookIcon from '../assets/New/contact.facebook.svg';
 
 const ContactSection = () => {
     useEffect(() => {
@@ -32,16 +35,19 @@ const ContactSection = () => {
                 <h2 className="design-section-title reveal">საკონტაქტო არხები.</h2>
                 <div className="contact-grid">
                     <a href="tel:+995571152508" className="contact-panel contact-panel-wide reveal stagger-1">
+                        <img src={PhoneIcon} alt="" />
                         <span className="design-kicker">ტელეფონი</span>
                         <p>+995 571 15 25 08</p>
                     </a>
 
                     <a href="mailto:oazisiofficial@gmail.com" className="contact-panel contact-panel-dark reveal stagger-2">
+                        <img src={EmailIcon} alt="" />
                         <span className="design-kicker">ელ-ფოსტა</span>
                         <p>oazisiofficial@gmail.com</p>
                     </a>
 
                     <a href="https://www.facebook.com/share/1BAiNNYhEw/" target="_blank" rel="noreferrer" className="contact-panel reveal stagger-1">
+                        <img src={FacebookIcon} alt="" />
                         <span className="design-kicker">Facebook</span>
                         <p>Oasis Official</p>
                     </a>

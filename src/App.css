@@ -29,6 +29,7 @@ body {
   min-width: 320px;
   min-height: 100%;
   overflow-x: hidden;
+  background: var(--oasis-bg);
 }
 
 /* 2. THEME TRANSITION */
@@ -345,6 +346,10 @@ section, .split-section {
     scroll-snap-type: none;
   }
 
+  body {
+    min-width: 0;
+  }
+
   section,
   .split-section {
     scroll-snap-align: none;
@@ -353,14 +358,21 @@ section, .split-section {
 
   /* 0. Header Mobile Adjustments */
   .fixed-nav-wrapper {
-    top: 12px;
+    top: auto;
+    bottom: max(12px, env(safe-area-inset-bottom));
     left: 12px;
-    width: calc(100% - 24px);
+    right: 12px;
+    width: auto;
     justify-content: center;
+    gap: 0;
   }
 
   .nav-left-content {
     display: none;
+  }
+
+  main {
+    padding-bottom: 84px;
   }
 
   .nav-section-title {
@@ -371,12 +383,14 @@ section, .split-section {
     height: 100vh;
     height: 100dvh;
     min-height: 560px;
+    max-height: none;
   }
 
   .hero-bg-video {
     width: 100%;
     height: 100%;
     max-width: none;
+    object-fit: cover;
     object-position: center center;
   }
 
@@ -408,22 +422,22 @@ section, .split-section {
     flex-direction: column;
     justify-content: flex-end;
     padding: 30px !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   /* 4. ADJUSTED GIANT NUMBERS */
   .big-num, .giant-number {
     position: absolute;
-    font-size: clamp(11rem, 56vw, 17rem) !important;
+    font-size: clamp(9.5rem, 46vw, 14rem) !important;
     font-weight: 900;
     line-height: 0.8;
-    letter-spacing: -12px;
+    letter-spacing: 0;
     opacity: 0.85;
     pointer-events: none;
   }
 
-  .num-left { top: -10px !important; left: -20px !important; }
-  .num-right { top: -20px !important; right: -15px !important; }
+  .num-left { top: -4px !important; left: -8px !important; }
+  .num-right { top: -8px !important; right: -4px !important; }
 
   /* 5. Scale labels */
   .stat-labels span, .label-text {

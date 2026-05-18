@@ -65,7 +65,8 @@
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .design-hero-copy h1 span {
@@ -188,7 +189,8 @@
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .design-grid-section,
@@ -255,7 +257,8 @@
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 900;
   line-height: 1.08;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .design-card-dark {
@@ -326,16 +329,24 @@
 
 .contact-panel-wide {
   grid-column: span 8;
-  background: var(--oasis-green);
+  background: var(--oasis-white);
 }
 
 .contact-panel-dark {
-  background: var(--oasis-blue);
+  background: var(--oasis-white);
 }
 
 .contact-panel-dark h3,
 .contact-panel-dark p {
-  color: var(--oasis-white);
+  color: var(--oasis-black);
+}
+
+.contact-panel img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: auto;
 }
 
 .contact-panel p {
@@ -398,32 +409,50 @@
   }
 
   .design-hero {
-    padding: 92px 14px 16px;
+    padding: 14px 14px 22px;
     gap: 14px;
   }
 
   .design-hero-copy {
-    min-height: clamp(420px, calc(100dvh - 132px), 560px);
-    padding: clamp(30px, 8vw, 40px) 26px;
+    order: 2;
+    min-height: 0;
+    padding: clamp(30px, 8vw, 40px) 24px;
     justify-content: center;
+    border-radius: 24px;
   }
 
   .design-hero-copy h1 {
-    font-size: clamp(2rem, 8.8vw, 3rem);
-    line-height: 1.08;
+    font-size: clamp(1.85rem, 7.4vw, 2.55rem);
+    line-height: 1.12;
     margin-bottom: 20px;
   }
 
   .design-hero-media {
-    min-height: 260px;
+    order: 1;
+    min-height: 0;
+    height: clamp(420px, 112vw, 560px);
+    border-radius: 24px;
+  }
+
+  .design-hero-media video,
+  .design-hero-media img,
+  .design-visual-panel img,
+  .design-visual-panel video {
+    max-height: 100%;
+    object-fit: contain;
   }
 
   .services-page .design-hero-copy h1 {
-    font-size: clamp(1.9rem, 8.1vw, 2.8rem);
+    font-size: clamp(1.55rem, 6.2vw, 2.1rem);
+  }
+
+  .contact-page .design-hero-copy h1 {
+    font-size: clamp(1.55rem, 6.2vw, 2.1rem);
   }
 
   .contact-hero .design-hero-copy {
-    min-height: clamp(420px, calc(100dvh - 132px), 560px);
+    order: 1;
+    min-height: 0;
   }
 
   .design-visual-panel,
@@ -432,13 +461,42 @@
     border-radius: 24px;
   }
 
+  .design-split .design-visual-panel {
+    margin-top: 0;
+    min-height: clamp(420px, 110vw, 560px);
+    max-height: none;
+    padding: 8px;
+  }
+
+  .design-split .design-visual-panel img,
+  .design-split .design-visual-panel video {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+  }
+
   .design-copy-panel {
     padding: 42px 26px;
+  }
+
+  .design-grid-section .design-visual-panel,
+  .design-process-section .design-visual-panel {
+    min-height: 0;
+    max-height: 340px;
+    padding: 18px;
   }
 
   .design-grid-section,
   .design-process-section {
     padding: 84px 14px 64px;
+  }
+
+  .design-section-title,
+  .design-copy-panel h2 {
+    font-size: clamp(2rem, 8.6vw, 2.7rem);
+    line-height: 1.12;
   }
 
   .design-process-grid {
@@ -448,8 +506,15 @@
   .design-card,
   .design-stat-card,
   .contact-panel {
-    min-height: 270px;
-    border-radius: 24px;
+    min-height: 240px;
+    padding: 28px;
+    border-radius: 22px;
+  }
+
+  .design-card h3,
+  .design-stat-card h3 {
+    font-size: clamp(1.45rem, 7.2vw, 2rem);
+    line-height: 1.12;
   }
 
   .lead,
@@ -461,18 +526,38 @@
   }
 
   .contact-panel p {
-    font-size: clamp(1.15rem, 7vw, 1.75rem);
+    font-size: clamp(1rem, 5vw, 1.35rem);
+    overflow-wrap: anywhere;
+  }
+
+  .contact-panel img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .services-hero-stack {
+    height: auto;
+    min-height: 0;
+    padding: 14px;
+    gap: 12px;
+    border-radius: 24px;
+  }
+
+  .services-hero-stack img {
+    min-height: 130px;
+    padding: 16px;
+    border-radius: 16px;
   }
 }
 
 @media (max-width: 380px) {
   .design-hero-copy {
-    padding: 28px 24px;
+    padding: 28px 22px;
   }
 
   .design-hero-copy h1,
   .services-page .design-hero-copy h1 {
-    font-size: clamp(1.8rem, 8vw, 2.55rem);
+    font-size: clamp(1.65rem, 7.8vw, 2.2rem);
   }
 
   .lead,
