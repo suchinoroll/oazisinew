@@ -428,7 +428,7 @@ section, .split-section {
   /* 4. ADJUSTED GIANT NUMBERS */
   .big-num, .giant-number {
     position: absolute;
-    font-size: clamp(9.5rem, 46vw, 14rem) !important;
+    font-size: clamp(11rem, 56vw, 17rem) !important;
     font-weight: 900;
     line-height: 0.8;
     letter-spacing: 0;
@@ -436,8 +436,8 @@ section, .split-section {
     pointer-events: none;
   }
 
-  .num-left { top: -4px !important; left: -8px !important; }
-  .num-right { top: -8px !important; right: -4px !important; }
+  .num-left { top: -10px !important; left: -5px !important; }
+  .num-right { top: -10px !important; right: -5px !important; }
 
   /* 5. Scale labels */
   .stat-labels span, .label-text {

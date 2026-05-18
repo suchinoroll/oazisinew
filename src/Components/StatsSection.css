@@ -35,14 +35,6 @@
 
 .card-green { background-color: #26D367; }
 .card-black { background-color: #000000; }
-.card-black::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 10px;
-    background: #0077FF;
-    pointer-events: none;
-}
 
 .giant-number {
     position: absolute;
@@ -113,7 +105,7 @@
     }
 
     .giant-number {
-        font-size: clamp(9.5rem, 46vw, 14rem);
+        font-size: clamp(11rem, 56vw, 17rem);
         letter-spacing: 0;
     }
 
@@ -122,6 +114,6 @@
         line-height: 1.02;
     }
 
-    .num-left { top: -4px; left: -8px; }
-    .num-right { top: -8px; right: -4px; }
+    .num-left { top: -10px; left: -5px; }
+    .num-right { top: -10px; right: -5px; }
 }
