@@ -18,6 +18,7 @@
     flex-direction: column;
     justify-content: center;
     min-width: 0;
+    overflow: hidden;
     padding: clamp(24px, 5vw, 48px);
     box-sizing: border-box;
 }
@@ -27,6 +28,18 @@
     height: auto;
     object-fit: contain;
     display: block;
+}
+
+.illustration-container img,
+.illustration-container .section-animation {
+    transform-origin: center;
+    transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.55s ease;
+}
+
+.split-section:hover .illustration-container img,
+.split-section:hover .illustration-container .section-animation {
+    transform: scale(1.018);
+    filter: saturate(1.04);
 }
 
 /* 3. ტექსტის კონტეინერი */
@@ -54,8 +67,8 @@
     line-height: 1.1;
     margin-bottom: 24px;
     letter-spacing: 0;
-    overflow-wrap: normal;
-    word-break: keep-all;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
 .text-container h2::after {
@@ -66,6 +79,19 @@
     margin: 18px auto 0;
     border-radius: 999px;
     background: #0077FF;
+    transform-origin: left center;
+    animation: title-rule-settle 0.75s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@keyframes title-rule-settle {
+    from {
+        opacity: 0;
+        transform: scaleX(0.35);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
 }
 
 /* 4. Desktop-ის ოპტიმიზაცია */
@@ -73,6 +99,7 @@
     .split-section {
         flex-direction: row;
         align-items: stretch; /* ორივე მხარე ერთნაირი სიმაღლისაა */
+        min-height: 100svh;
     }
 
     .split-section.reverse {
@@ -107,7 +134,7 @@
 
 @media (max-width: 768px) {
     .split-section {
-        padding: 82px 0 40px;
+        padding: clamp(72px, 14vw, 82px) 0 40px;
     }
 
     .split-section .text-container {
@@ -125,7 +152,7 @@
     .illustration-container img,
     .illustration-container .section-animation {
         width: 100%;
-        max-height: 300px;
+        max-height: min(300px, 52svh);
         object-fit: contain;
     }
 

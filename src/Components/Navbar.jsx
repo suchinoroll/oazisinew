@@ -27,22 +27,22 @@ const Navbar = () => {
                     style={{ transform: `translateX(${activeIndex * 100}%)` }}
                 />
 
-                <Link to="/" className={`nav-item ${activeIndex === 0 ? 'active' : 'inactive'}`}>
+                <Link to="/" className={`nav-item ${activeIndex === 0 ? 'active' : 'inactive'}`} aria-current={activeIndex === 0 ? 'page' : undefined}>
                     <div className="icon-slot"><img src={HomeIcon} alt="" className="custom-icon" /></div>
                     <span>მთავარი</span>
                 </Link>
 
-                <Link to="/about" className={`nav-item ${activeIndex === 1 ? 'active' : 'inactive'}`}>
+                <Link to="/about" className={`nav-item ${activeIndex === 1 ? 'active' : 'inactive'}`} aria-current={activeIndex === 1 ? 'page' : undefined}>
                     <div className="icon-slot"><img src={AboutIcon} alt="" className="custom-icon" /></div>
                     <span>კომპანია</span>
                 </Link>
 
-                <Link to="/services" className={`nav-item ${activeIndex === 2 ? 'active' : 'inactive'}`}>
+                <Link to="/services" className={`nav-item ${activeIndex === 2 ? 'active' : 'inactive'}`} aria-current={activeIndex === 2 ? 'page' : undefined}>
                     <div className="icon-slot"><img src={ServicesIcon} alt="" className="custom-icon" /></div>
                     <span>სერვისები</span>
                 </Link>
 
-                <Link to="/contact" className={`nav-item ${activeIndex === 3 ? 'active' : 'inactive'}`}>
+                <Link to="/contact" className={`nav-item ${activeIndex === 3 ? 'active' : 'inactive'}`} aria-current={activeIndex === 3 ? 'page' : undefined}>
                     <div className="icon-slot"><img src={ContactIcon} alt="" className="custom-icon" /></div>
                     <span>კონტაქტი</span>
                 </Link>

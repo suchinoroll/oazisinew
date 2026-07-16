@@ -9,7 +9,7 @@ const StatsSection = () => {
     };
 
     return (
-        <section className="stats-section">
+        <section className="stats-section home-reveal">
             <div className="stats-container">
 
                 {/* LEFT CARD: Finished Projects */}

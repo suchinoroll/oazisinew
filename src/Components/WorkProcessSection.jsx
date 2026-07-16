@@ -13,7 +13,7 @@ const steps = [
 
 const WorkProcessSection = () => {
     return (
-        <section className="home-process-section">
+        <section className="home-process-section home-reveal">
             <div className="home-process-inner">
                 <h2>სამუშაო პროცესი.</h2>
                 <div className="home-process-grid">

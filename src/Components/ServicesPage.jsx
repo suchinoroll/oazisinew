@@ -4,6 +4,7 @@ import StepOneIcon from '../assets/New/services.step1.svg';
 import StepTwoIcon from '../assets/New/services.step2.svg';
 import StepThreeIcon from '../assets/New/services.step3.svg';
 import StepFourIcon from '../assets/New/services.step4.svg';
+import ServicesLoop from '../assets/New/ServicesLoop.mp4';
 
 const ServicesPage = () => {
     const observerRef = useRef(null);
@@ -35,11 +36,8 @@ const ServicesPage = () => {
                         ჩვენ გთავაზობთ სრულ ციკლს იდეიდან გასაღების ჩაბარებამდე. ყოველი ეტაპი კონტროლდება უახლესი ტექნოლოგიებით.
                     </p>
                 </div>
-                <div className="design-hero-media services-hero-stack" aria-hidden="true">
-                    <img src={StepOneIcon} alt="" />
-                    <img src={StepTwoIcon} alt="" />
-                    <img src={StepThreeIcon} alt="" />
-                    <img src={StepFourIcon} alt="" />
+                <div className="design-hero-media">
+                    <video src={ServicesLoop} autoPlay muted loop playsInline aria-label="ჩვენი სერვისები" />
                 </div>
             </header>
 

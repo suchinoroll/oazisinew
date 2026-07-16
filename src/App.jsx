@@ -8,8 +8,7 @@ import "./App.css";
 
 // Assets
 import Logo from "./assets/New/logoNew.svg";
-import HomeBanner from "./assets/New/Home.banner.mp4";
-import HomeBannerMobile from "./assets/New/home.bannermobile.mp4";
+import HomeBanner from "./assets/New/NewHomeBanner.mp4";
 import HomeAboutVisual from "./assets/New/home.AboutUsStatic.svg";
 import HomeAboutAnimation from "./assets/New/home,AboutUsAnimated.mp4";
 
@@ -30,6 +29,35 @@ const ScrollToTop = ({ setIsWhiteMode, setIsScrolled }) => {
             setIsScrolled(true);
         }
     }, [pathname, setIsWhiteMode, setIsScrolled]);
+    return null;
+};
+
+const HomeRevealObserver = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        if (pathname !== '/') return;
+
+        const revealEls = document.querySelectorAll('.home-reveal');
+        if (!revealEls.length) return;
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('home-reveal-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.16, rootMargin: '0px 0px -10% 0px' });
+
+        revealEls.forEach((el) => {
+            el.classList.remove('home-reveal-visible');
+            revealObserver.observe(el);
+        });
+
+        return () => revealObserver.disconnect();
+    }, [pathname]);
+
     return null;
 };
 
@@ -77,6 +105,7 @@ function App() {
     return (
         <Router>
             <ScrollToTop setIsWhiteMode={setIsWhiteMode} setIsScrolled={setIsScrolled} />
+            <HomeRevealObserver />
             <div className={`app-container ${isWhiteMode ? 'white-bg' : ''}`}>
                 <header className="fixed-nav-wrapper">
                     <div className="nav-left-content">
@@ -95,17 +124,16 @@ function App() {
                                     className="hero-bg-video"
                                     autoPlay
                                     muted
-                                    loop
                                     playsInline
                                     aria-hidden="true"
                                 >
-                                    <source src={HomeBannerMobile} media="(max-width: 700px)" type="video/mp4" />
                                     <source src={HomeBanner} type="video/mp4" />
                                 </video>
                             </section>
 
                             <Section
                                 id="about-intro"
+                                className="home-reveal"
                                 title="ჩვენს შესახებ"
                                 description="შპს „ოაზისი“ დაარსდა 2018 წელს და წარმოადგენს სანდო პარტნიორს სამშენებლო და სარემონტო სფეროში. ჩვენი გუნდი აერთიანებს გამოცდილ პროფესიონალებს, რომელთა მონაწილეობით არაერთი წარმატებული პროექტი განხორციელდა.
 

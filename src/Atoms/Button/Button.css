@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
 
-    transition: all 0.25s ease;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
     transform: translateY(0);
 
     /* makes animations smoother */
@@ -40,6 +40,11 @@
     color: white;
 
     box-shadow: 0 6px 16px rgba(38, 211, 103, 0.22), 0 8px 20px rgba(0, 119, 255, 0.14);
+}
+
+.btn:focus-visible {
+    outline: 3px solid rgba(0, 119, 255, 0.65);
+    outline-offset: 4px;
 }
 
 .btn-primary:hover {

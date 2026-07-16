@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Section.css";
 
-const Section = ({ id, title, description, image, animation, imageRight }) => {
+const Section = ({ id, title, description, image, animation, imageRight, className = "" }) => {
     const sectionRef = useRef(null);
     const videoRef = useRef(null);
     const [hasStartedAnimation, setHasStartedAnimation] = useState(!animation);
@@ -30,7 +30,7 @@ const Section = ({ id, title, description, image, animation, imageRight }) => {
     }, [hasStartedAnimation, showStaticImage]);
 
     return (
-        <section id={id} ref={sectionRef} className={`split-section ${imageRight ? 'reverse' : ''}`}>
+        <section id={id} ref={sectionRef} className={`split-section ${imageRight ? 'reverse' : ''} ${className}`.trim()}>
             <div className="section-half illustration-container">
                 {animation && hasStartedAnimation && !showStaticImage ? (
                     <video
